@@ -2,6 +2,11 @@
 
 import { AppBar, Toolbar, Typography, Button, Box, Container } from "@mui/material";
 import HowItWorks from "@/components/HowItWorks";
+import TrendingSkills from "@/components/TrendingSkills";
+import CommunityTestimonials from "@/components/CommunityTestimonials";
+import CTASection from "@/components/CTASection";
+import Footer from "@/components/Footer";
+
 
 
 export default function HomePage() {
@@ -56,8 +61,10 @@ export default function HomePage() {
 </Box>
 {/* How It Works Section */}
 <HowItWorks />
-
-
+<TrendingSkills />
+<CommunityTestimonials />
+<CTASection />
+<Footer />
     </Box>
   );
 }
