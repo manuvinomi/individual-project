@@ -25,12 +25,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
-        <Navbar />
-      </body>
-    </html>
-  );
+  <html lang="en">
+    <body>
+      {/* ⛔ REMOVE THIS IF ALREADY ADDED IN HOME PAGE */}
+      {children}
+    </body>
+  </html>
+);
+
+
+
 }
 

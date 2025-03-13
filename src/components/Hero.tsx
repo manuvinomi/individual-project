@@ -6,18 +6,22 @@ import Link from "next/link";
 const Hero = () => {
   return (
     <Box
-      sx={{
-        position: "relative",
-        width: "100%",
-        height: "80vh",
-        backgroundImage: "url('/hero.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+  sx={{
+    height: "80vh",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+    textAlign: "center",
+    backgroundImage: "url('/hero.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    padding: "2rem",
+    marginTop: "64px", // Adjust based on Navbar height
+  }}
+>
+
       {/* Overlay to Improve Text Readability */}
       <Box
         sx={{
