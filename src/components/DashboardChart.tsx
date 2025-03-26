@@ -12,10 +12,10 @@ import {
   Legend,
 } from "chart.js";
 
-// Register required Chart.js components
+// Register necessary Chart.js components
 Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-// Define chart data
+// ✅ Define the chart data
 const data = {
   labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
   datasets: [
@@ -27,11 +27,11 @@ const data = {
   ],
 };
 
-// ✅ Define `options` before using it
+// ✅ Define the `options` object before using it
 const options = {
   responsive: true,
   plugins: {
-    legend: { position: "top" },
+    legend: { position: "top" as const },
     title: { display: true, text: "Monthly Completed Requests" },
   },
 };
@@ -42,11 +42,12 @@ const DashboardChart = () => {
       <Typography variant="h6" fontWeight="bold">
         Service Requests Overview
       </Typography>
-      {/* ✅ Pass `options` correctly */}
+      {/* ✅ Ensure `options` is properly defined before using it */}
       <Bar data={data} options={options} />
     </Box>
   );
 };
 
 export default DashboardChart;
+
 

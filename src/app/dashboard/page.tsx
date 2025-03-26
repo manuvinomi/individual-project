@@ -5,7 +5,6 @@ import Sidebar from "@/components/Sidebar";
 import DashboardOverview from "@/components/DashboardOverview";
 import DashboardWidgets from "@/components/DashboardWidgets"; // ✅ Ensures widgets are included once
 import FloatingActionButton from "@/components/FloatingActionButton";
-import TimeCreditSummary from "../components/TimeCreditSummary";
 
 
 export default function DashboardPage() {

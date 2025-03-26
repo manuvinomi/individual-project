@@ -1,12 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Container, Typography, Button, Box } from "@mui/material";
-import { Fade } from "react-awesome-reveal";
+import { Typography, Button, Box, Grid, Card, CardContent, Avatar } from "@mui/material";
+import { useRouter } from "next/navigation";
 
 const MySkills = () => {
-    const [skills, setSkills] = useState<Array<{ name: string; description?: string }>>([]);
-
-
+  const [skills, setSkills] = useState<{ name: string; description: string; image: string }[]>([]);
+  const router = useRouter();
 
   useEffect(() => {
     fetch("/api/my-skills")
@@ -21,61 +20,78 @@ const MySkills = () => {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
         alignItems: "center",
-        textAlign: "center",
-        background: "linear-gradient(135deg, #0072ff, #00c6ff)", // Beautiful Gradient
+        background: "linear-gradient(135deg, #1a1a2e, #16213e)", // Dark Mode
         color: "white",
         padding: 4,
       }}
     >
-      <Fade>
-        <Typography variant="h2" sx={{ fontWeight: "bold", marginBottom: 2 }}>
-          My Skills & Services
-        </Typography>
+      <Typography variant="h3" sx={{ fontWeight: "bold", marginBottom: 3 }}>
+        My Skills & Services
+      </Typography>
 
-        {skills.length === 0 ? (
-          <Typography variant="h5" sx={{ opacity: 0.8 }}>No skills added yet.</Typography>
-        ) : (
-          <Box sx={{ marginTop: 3 }}>
-            {skills.map((skill, index) => (
-              <Typography
-                key={index}
-                variant="h4"
+      {skills.length === 0 ? (
+        <Typography variant="h5" sx={{ opacity: 0.7 }}>No skills added yet.</Typography>
+      ) : (
+        <Grid container spacing={3} justifyContent="center">
+          {skills.map((skill, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <Card
                 sx={{
-                  marginBottom: 1,
-                  fontWeight: "500",
-                  opacity: 0.9,
-                  transition: "0.3s",
-                  "&:hover": { opacity: 1, transform: "scale(1.05)" },
+                  backgroundColor: "rgba(15, 52, 96, 0.3)", // Dark translucent
+                  color: "white",
+                  padding: 2,
+                  textAlign: "center",
+                  borderRadius: "15px",
+                  backdropFilter: "blur(12px)",
+                  boxShadow: "0px 4px 10px rgba(0,0,0,0.3)",
+                  transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
+                  "&:hover": { 
+                    transform: "scale(1.05)", 
+                    boxShadow: "0px 8px 20px rgba(255,255,255,0.2)" 
+                  },
                 }}
               >
-                🚀 {skill.name} - <span style={{ fontSize: "1rem", opacity: 0.7 }}>{skill.description || "No description"}</span>
-              </Typography>
-            ))}
-          </Box>
-        )}
+                <CardContent>
+                  <Avatar
+                    src={skill.image || "/default-skill.png"}
+                    sx={{ width: 80, height: 80, margin: "auto", marginBottom: 2 }}
+                  />
+                  <Typography variant="h5" sx={{ fontWeight: "bold", color: "#e94560" }}>
+                    {skill.name}
+                  </Typography>
+                  <Typography variant="body1" sx={{ opacity: 0.9 }}>
+                    {skill.description}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      )}
 
-        <Button
-          variant="contained"
-          color="secondary"
-          href="/add-skill"
-          sx={{
-            marginTop: 4,
-            padding: "12px 24px",
-            fontSize: "1.2rem",
-            borderRadius: "30px",
-            backgroundColor: "#ff4081",
-            "&:hover": { backgroundColor: "#ff79a1" },
-          }}
-        >
-          ➕ Add New Skill
-        </Button>
-      </Fade>
+      <Button
+        variant="contained"
+        sx={{
+          marginTop: 4,
+          backgroundColor: "#e94560", // Deep Red CTA
+          color: "white",
+          borderRadius: "30px",
+          padding: "12px 24px",
+          fontWeight: "bold",
+          "&:hover": { backgroundColor: "#ff6b81" }, // Lighter hover effect
+        }}
+        onClick={() => router.push("/add-skill")}
+      >
+        Add New Skill
+      </Button>
     </Box>
   );
 };
 
 export default MySkills;
+
+
+
 
 

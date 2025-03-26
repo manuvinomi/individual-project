@@ -1,28 +1,29 @@
 "use client";
 import { useState } from "react";
-import { Container, TextField, Button, Typography, Box } from "@mui/material";
-import { Fade } from "react-awesome-reveal";
+import { Typography, TextField, Button, Box, Input } from "@mui/material";
 
 const AddSkill = () => {
-  const [skill, setSkill] = useState({ name: "", description: "" });
-  const [loading, setLoading] = useState(false);
+  const [skill, setSkill] = useState({ name: "", description: "", image: "" });
 
-  const handleSubmit = async () => {
-    if (!skill.name.trim()) {
-      alert("Skill name cannot be empty!");
-      return;
+  const handleChange = (e: any) => {
+    setSkill({ ...skill, [e.target.name]: e.target.value });
+  };
+
+  const handleImageUpload = (e: any) => {
+    const file = e.target.files[0];
+    if (file) {
+      setSkill({ ...skill, image: URL.createObjectURL(file) });
     }
-    
-    setLoading(true);
-    await fetch("/api/add-skill", {
-      method: "POST",
-      body: JSON.stringify(skill),
-      headers: { "Content-Type": "application/json" },
-    });
+  };
 
-    setLoading(false);
-    setSkill({ name: "", description: "" });
-    alert("Skill added successfully!");
+  const handleSubmit = () => {
+    fetch("/api/add-skill", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(skill),
+    })
+      .then((res) => res.json())
+      .then(() => alert("Skill added successfully!"));
   };
 
   return (
@@ -31,89 +32,106 @@ const AddSkill = () => {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
         alignItems: "center",
-        textAlign: "center",
-        background: "linear-gradient(135deg, #1D976C, #93F9B9)",
+        justifyContent: "center",
+        background: "linear-gradient(135deg, #1a1a2e, #16213e)", // Dark Blue Background
         color: "white",
         padding: 4,
       }}
     >
-      <Fade>
-        <Typography variant="h2" sx={{ fontWeight: "bold", marginBottom: 2 }}>
-          Add a New Skill
-        </Typography>
+      <Typography variant="h3" sx={{ fontWeight: "bold", marginBottom: 3 }}>
+        Add New Skill
+      </Typography>
 
-        <Container maxWidth="sm">
-          <TextField
-            label="Skill Name"
-            fullWidth
-            value={skill.name}
-            onChange={(e) => setSkill({ ...skill, name: e.target.value })}
-            margin="normal"
-            sx={{
-              backgroundColor: "white",
-              borderRadius: "10px",
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": { borderColor: "#1D976C" },
-                "&:hover fieldset": { borderColor: "#0B875B" },
-                "&.Mui-focused fieldset": { borderColor: "#0B875B" },
-              },
-            }}
-          />
-
-          <TextField
-            label="Description"
-            fullWidth
-            multiline
-            rows={3}
-            value={skill.description}
-            onChange={(e) => setSkill({ ...skill, description: e.target.value })}
-            margin="normal"
-            sx={{
-              backgroundColor: "white",
-              borderRadius: "10px",
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": { borderColor: "#1D976C" },
-                "&:hover fieldset": { borderColor: "#0B875B" },
-                "&.Mui-focused fieldset": { borderColor: "#0B875B" },
-              },
-            }}
-          />
-
-          <Button
-            variant="contained"
-            onClick={handleSubmit}
-            disabled={loading}
-            sx={{
-              marginTop: 3,
-              padding: "12px 24px",
-              fontSize: "1.2rem",
-              borderRadius: "30px",
-              backgroundColor: "#0B875B",
-              "&:hover": { backgroundColor: "#087A4F" },
-            }}
-          >
-            {loading ? "Saving..." : "Save Skill"}
-          </Button>
-
-          <Button
-            href="/my-skills"
-            sx={{
-              marginTop: 2,
-              display: "block",
+      <Box sx={{ width: "50%", textAlign: "center" }}>
+        <TextField
+          variant="standard"
+          name="name"
+          placeholder="Skill Name"
+          value={skill.name}
+          onChange={handleChange}
+          fullWidth
+          sx={{
+            "& input": {
               color: "white",
-              textDecoration: "underline",
-              "&:hover": { color: "#C8FFD4" },
-            }}
-          >
-            ← Back to My Skills
-          </Button>
-        </Container>
-      </Fade>
+              borderBottom: "2px solid #e94560", // Red Highlight
+            },
+          }}
+        />
+
+        <TextField
+          variant="standard"
+          name="description"
+          placeholder="Skill Description"
+          value={skill.description}
+          onChange={handleChange}
+          fullWidth
+          multiline
+          rows={2}
+          sx={{
+            marginTop: "20px",
+            "& textarea": {
+              color: "white",
+              borderBottom: "2px solid #e94560",
+            },
+          }}
+        />
+
+        <Button
+          variant="contained"
+          component="label"
+          sx={{
+            marginTop: 3,
+            backgroundColor: "#e94560",
+            color: "white",
+            fontWeight: "bold",
+            "&:hover": { backgroundColor: "#ff6b81" }, // Light red hover effect
+          }}
+        >
+          Upload Image
+          <input type="file" hidden onChange={handleImageUpload} />
+        </Button>
+
+        {skill.image && (
+          <Box sx={{ marginTop: 2 }}>
+            <img
+              src={skill.image}
+              alt="Skill Preview"
+              width="120px"
+              style={{
+                borderRadius: "15px",
+                boxShadow: "0px 4px 10px rgba(255, 255, 255, 0.2)",
+              }}
+            />
+          </Box>
+        )}
+
+        <Button
+          variant="outlined"
+          sx={{
+            marginTop: 3,
+            borderRadius: "30px",
+            padding: "12px 24px",
+            borderColor: "#e94560",
+            color: "#e94560",
+            fontWeight: "bold",
+            "&:hover": {
+              backgroundColor: "#e94560",
+              color: "white",
+            },
+          }}
+          onClick={handleSubmit}
+        >
+          Add Skill
+        </Button>
+      </Box>
     </Box>
   );
 };
 
 export default AddSkill;
+
+
+
+
 

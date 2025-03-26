@@ -1,22 +1,27 @@
-import { Drawer, List, ListItem, ListItemText, Avatar, Box, Typography, Divider } from "@mui/material";
+"use client";
+
+import { Drawer, List, ListItem, ListItemText } from "@mui/material";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Sidebar = () => {
+  const pathname = usePathname(); // Get current route
+
   return (
-    <Drawer variant="permanent" sx={{ width: 240, flexShrink: 0, "& .MuiDrawer-paper": { width: 240, boxSizing: "border-box", padding: 2 } }}>
-      {/* User Profile */}
-      <Box display="flex" flexDirection="column" alignItems="center" my={2}>
-        <Avatar sx={{ width: 64, height: 64 }}>V</Avatar>
-        <Typography variant="h6" fontWeight="bold" sx={{ mt: 1 }}>
-          Vinomi Rathnayaka
-        </Typography>
-        <Typography variant="body2" color="textSecondary">
-          10 Time Credits
-        </Typography>
-      </Box>
-
-      <Divider />
-
-      {/* Navigation Links */}
+    <Drawer
+      variant="permanent"
+      sx={{
+        width: 250,
+        flexShrink: 0,
+        "& .MuiDrawer-paper": {
+          width: 250,
+          boxSizing: "border-box",
+          background: "#f8f9fa",
+          position: "fixed",
+          height: "100vh",
+        },
+      }}
+    >
       <List>
         {[
           { text: "Dashboard Overview", href: "/dashboard" },
@@ -25,7 +30,19 @@ const Sidebar = () => {
           { text: "Time Credit Transactions", href: "/dashboard/transactions" },
           { text: "Notifications", href: "/dashboard/notifications" },
         ].map(({ text, href }) => (
-          <ListItem button component="a" href={href} key={text}>
+          <ListItem
+            key={text}
+            component={Link}
+            href={href}
+            sx={{
+              textDecoration: "none",
+              color: pathname === href ? "#007bff" : "inherit", // Highlight active page
+              fontWeight: pathname === href ? "bold" : "normal",
+              backgroundColor: pathname === href ? "rgba(0,123,255,0.1)" : "transparent",
+              padding: "10px",
+              borderRadius: "5px",
+            }}
+          >
             <ListItemText primary={text} />
           </ListItem>
         ))}
@@ -35,7 +52,6 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
 
 
 
