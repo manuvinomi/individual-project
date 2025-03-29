@@ -1,31 +1,68 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Container, TextField, Button, Typography } from "@mui/material";
+import { Container, TextField, Button, Typography, Alert } from "@mui/material";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
   const router = useRouter();
 
-  const handleLogin = () => {
-    // Simulating an API response with user details
-    const userData = {
-      name: "John Doe",
-      email: email,
-      profilePic: "/user-placeholder.png", // Placeholder image for now
-    };
+  const handleLogin = async () => {
+    try {
+      const res = await fetch("/api/signin", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
 
-    localStorage.setItem("user", JSON.stringify(userData));
-    router.push("/dashboard"); // Redirect to dashboard after login
+      const data = await res.json();
+
+      if (!res.ok) {
+        setErrorMsg(data.error || "Login failed");
+        return;
+      }
+
+      // Save user info to localStorage (temporary method; use JWT in production)
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      router.push("/dashboard");
+    } catch (error) {
+      console.error("Login error:", error);
+      setErrorMsg("An unexpected error occurred");
+    }
   };
 
   return (
     <Container maxWidth="sm" sx={{ textAlign: "center", marginTop: 4 }}>
-      <Typography variant="h4">Sign In</Typography>
-      <TextField label="Email" fullWidth margin="normal" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <TextField label="Password" type="password" fullWidth margin="normal" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <Button variant="contained" fullWidth sx={{ marginTop: 2 }} onClick={handleLogin}>
+      <Typography variant="h4" gutterBottom>Sign In</Typography>
+
+      {errorMsg && <Alert severity="error" sx={{ mb: 2 }}>{errorMsg}</Alert>}
+
+      <TextField
+        label="Email"
+        fullWidth
+        margin="normal"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+
+      <TextField
+        label="Password"
+        type="password"
+        fullWidth
+        margin="normal"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+
+      <Button
+        variant="contained"
+        fullWidth
+        sx={{ marginTop: 2 }}
+        onClick={handleLogin}
+      >
         Login
       </Button>
     </Container>
@@ -33,5 +70,3 @@ const SignIn = () => {
 };
 
 export default SignIn;
-
-    
