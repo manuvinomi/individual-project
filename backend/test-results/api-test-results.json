@@ -1,0 +1,544 @@
+{
+  "working": [
+    {
+      "name": "Get all services",
+      "method": "GET",
+      "url": "/services",
+      "status": 200,
+      "data": [
+        {
+          "_id": "67f8eec0fc9c862254cdc7f6",
+          "title": "Math Tutore",
+          "description": "Tutoting Maths Classes",
+          "hourlyRate": 1,
+          "category": "Education",
+          "user": {
+            "_id": "67f7bfe8c7e506d26d66cbdb",
+            "avatar": "default-avatar.jpg",
+            "firstName": "kavindu",
+            "lastName": "lakshitha"
+          },
+          "availability": [],
+          "isActive": true,
+          "createdAt": "2025-04-11T10:28:16.606Z",
+          "__v": 0,
+          "id": "67f8eec0fc9c862254cdc7f6"
+        },
+        {
+          "_id": "67f8f0ee33e39fc2caf76807",
+          "title": "IT",
+          "description": "IT",
+          "hourlyRate": 3,
+          "category": "Technology",
+          "user": {
+            "_id": "67f7bfe8c7e506d26d66cbdb",
+            "avatar": "default-avatar.jpg",
+            "firstName": "kavindu",
+            "lastName": "lakshitha"
+          },
+          "availability": [],
+          "isActive": true,
+          "createdAt": "2025-04-11T10:37:34.020Z",
+          "__v": 0,
+          "id": "67f8f0ee33e39fc2caf76807"
+        },
+        {
+          "_id": "67f8f349727d3c6516ba9df7",
+          "title": "health",
+          "description": "doctor",
+          "hourlyRate": 1,
+          "category": "Health & Wellness",
+          "user": {
+            "_id": "67f7bfe8c7e506d26d66cbdb",
+            "avatar": "default-avatar.jpg",
+            "firstName": "kavindu",
+            "lastName": "lakshitha"
+          },
+          "availability": [],
+          "isActive": true,
+          "createdAt": "2025-04-11T10:47:37.529Z",
+          "__v": 0,
+          "id": "67f8f349727d3c6516ba9df7"
+        },
+        {
+          "_id": "67fa0cec81c1563606957f9d",
+          "title": "Web Development Tutoring",
+          "description": "Learn React, Node.js and MongoDB from an experienced developer. I can help with project setup, debugging, and best practices.",
+          "hourlyRate": 5,
+          "category": "Technology",
+          "user": {
+            "avatar": "default-avatar.jpg",
+            "_id": "67f79b6ef1506fc919e4ddbd"
+          },
+          "availability": [
+            "Monday",
+            "Wednesday",
+            "Friday"
+          ],
+          "isActive": true,
+          "createdAt": "2025-04-12T06:49:16.202Z",
+          "__v": 0,
+          "id": "67fa0cec81c1563606957f9d"
+        },
+        {
+          "_id": "67fa0e343f7e56d6726b14d2",
+          "title": "Web Development Tutoring",
+          "description": "Learn React, Node.js and MongoDB from an experienced developer. I can help with project setup, debugging, and best practices.",
+          "hourlyRate": 5,
+          "category": "Technology",
+          "user": {
+            "avatar": "default-avatar.jpg",
+            "_id": "67f79b6ef1506fc919e4ddbd"
+          },
+          "availability": [
+            "Monday",
+            "Wednesday",
+            "Friday"
+          ],
+          "isActive": true,
+          "createdAt": "2025-04-12T06:54:44.304Z",
+          "__v": 0,
+          "id": "67fa0e343f7e56d6726b14d2"
+        }
+      ]
+    },
+    {
+      "name": "Get my services",
+      "method": "GET",
+      "url": "/services/my-services",
+      "status": 200,
+      "data": [
+        {
+          "_id": "67fa0cec81c1563606957f9d",
+          "title": "Web Development Tutoring",
+          "description": "Learn React, Node.js and MongoDB from an experienced developer. I can help with project setup, debugging, and best practices.",
+          "hourlyRate": 5,
+          "category": "Technology",
+          "user": "67f79b6ef1506fc919e4ddbd",
+          "availability": [
+            "Monday",
+            "Wednesday",
+            "Friday"
+          ],
+          "isActive": true,
+          "createdAt": "2025-04-12T06:49:16.202Z",
+          "__v": 0,
+          "id": "67fa0cec81c1563606957f9d"
+        },
+        {
+          "_id": "67fa0e343f7e56d6726b14d2",
+          "title": "Web Development Tutoring",
+          "description": "Learn React, Node.js and MongoDB from an experienced developer. I can help with project setup, debugging, and best practices.",
+          "hourlyRate": 5,
+          "category": "Technology",
+          "user": "67f79b6ef1506fc919e4ddbd",
+          "availability": [
+            "Monday",
+            "Wednesday",
+            "Friday"
+          ],
+          "isActive": true,
+          "createdAt": "2025-04-12T06:54:44.304Z",
+          "__v": 0,
+          "id": "67fa0e343f7e56d6726b14d2"
+        }
+      ]
+    },
+    {
+      "name": "Create service",
+      "method": "POST",
+      "url": "/services",
+      "status": 201,
+      "data": {
+        "title": "Web Development Tutoring",
+        "description": "Learn React, Node.js and MongoDB from an experienced developer. I can help with project setup, debugging, and best practices.",
+        "hourlyRate": 5,
+        "category": "Technology",
+        "user": "67f79b6ef1506fc919e4ddbd",
+        "availability": [
+          "Monday",
+          "Wednesday",
+          "Friday"
+        ],
+        "isActive": true,
+        "_id": "67fa0ece210bdc3d0dcaa9e9",
+        "createdAt": "2025-04-12T06:57:18.634Z",
+        "__v": 0,
+        "id": "67fa0ece210bdc3d0dcaa9e9"
+      }
+    },
+    {
+      "name": "Get all events",
+      "method": "GET",
+      "url": "/events",
+      "status": 200,
+      "data": {
+        "success": true,
+        "count": 5,
+        "pagination": {},
+        "total": 5,
+        "data": [
+          {
+            "_id": "67fa0e343f7e56d6726b14db",
+            "title": "JavaScript Workshop",
+            "description": "A hands-on workshop covering JavaScript fundamentals to advanced topics.",
+            "category": "Education",
+            "date": "2025-04-19T00:00:00.000Z",
+            "time": "10:00 AM",
+            "duration": 3,
+            "location": "Community Center",
+            "isVirtual": false,
+            "image": "default-event.jpg",
+            "maxAttendees": 25,
+            "timeCredits": 1,
+            "isTimeCreditEarning": false,
+            "skillsRequired": [],
+            "skillsOffered": [],
+            "organizer": {
+              "_id": "67f79b6ef1506fc919e4ddbd",
+              "name": "Test User",
+              "profileImage": "default-avatar.jpg"
+            },
+            "status": "upcoming",
+            "attendees": [],
+            "createdAt": "2025-04-12T06:54:44.813Z",
+            "__v": 0,
+            "currentAttendees": 0,
+            "isFull": false,
+            "id": "67fa0e343f7e56d6726b14db"
+          },
+          {
+            "_id": "67fa0cec81c1563606957fa6",
+            "title": "JavaScript Workshop",
+            "description": "A hands-on workshop covering JavaScript fundamentals to advanced topics.",
+            "category": "Education",
+            "date": "2025-04-19T00:00:00.000Z",
+            "time": "10:00 AM",
+            "duration": 3,
+            "location": "Community Center",
+            "isVirtual": false,
+            "image": "default-event.jpg",
+            "maxAttendees": 25,
+            "timeCredits": 1,
+            "isTimeCreditEarning": false,
+            "skillsRequired": [],
+            "skillsOffered": [],
+            "organizer": {
+              "_id": "67f79b6ef1506fc919e4ddbd",
+              "name": "Test User",
+              "profileImage": "default-avatar.jpg"
+            },
+            "status": "upcoming",
+            "attendees": [],
+            "createdAt": "2025-04-12T06:49:16.818Z",
+            "__v": 0,
+            "currentAttendees": 0,
+            "isFull": false,
+            "id": "67fa0cec81c1563606957fa6"
+          },
+          {
+            "_id": "67f79d8a3c0630827e8e0bac",
+            "title": "JavaScript Workshop",
+            "description": "Learn JavaScript basics and advanced concepts in this interactive workshop",
+            "category": "Workshop",
+            "date": "2025-04-17T10:29:29.650Z",
+            "time": "2:00 PM",
+            "duration": 2,
+            "location": "Community Center",
+            "isVirtual": false,
+            "image": "default-event.jpg",
+            "maxAttendees": 20,
+            "timeCredits": 2,
+            "isTimeCreditEarning": true,
+            "skillsRequired": [],
+            "skillsOffered": [],
+            "organizer": {
+              "_id": "67f79b6ef1506fc919e4ddbd",
+              "name": "Test User",
+              "profileImage": "default-avatar.jpg"
+            },
+            "status": "upcoming",
+            "attendees": [
+              {
+                "user": {
+                  "_id": "67f79b6ef1506fc919e4ddbd",
+                  "name": "Test User",
+                  "profileImage": "default-avatar.jpg"
+                },
+                "status": "confirmed",
+                "joinedAt": "2025-04-10T10:29:31.669Z",
+                "_id": "67f79d8b3c0630827e8e0bc2",
+                "id": "67f79d8b3c0630827e8e0bc2"
+              }
+            ],
+            "createdAt": "2025-04-10T10:29:30.138Z",
+            "__v": 1,
+            "currentAttendees": 1,
+            "isFull": false,
+            "id": "67f79d8a3c0630827e8e0bac"
+          },
+          {
+            "_id": "67f79c6eb2e830f6b7b85033",
+            "title": "JavaScript Workshop",
+            "description": "Learn JavaScript basics and advanced concepts in this interactive workshop",
+            "category": "Workshop",
+            "date": "2025-04-17T10:24:45.689Z",
+            "time": "2:00 PM",
+            "duration": 2,
+            "location": "Community Center",
+            "isVirtual": false,
+            "image": "default-event.jpg",
+            "maxAttendees": 20,
+            "timeCredits": 2,
+            "isTimeCreditEarning": true,
+            "skillsRequired": [],
+            "skillsOffered": [],
+            "organizer": {
+              "_id": "67f79b6ef1506fc919e4ddbd",
+              "name": "Test User",
+              "profileImage": "default-avatar.jpg"
+            },
+            "status": "upcoming",
+            "attendees": [
+              {
+                "user": {
+                  "_id": "67f79b6ef1506fc919e4ddbd",
+                  "name": "Test User",
+                  "profileImage": "default-avatar.jpg"
+                },
+                "status": "confirmed",
+                "joinedAt": "2025-04-10T10:24:47.750Z",
+                "_id": "67f79c6fb2e830f6b7b85046",
+                "id": "67f79c6fb2e830f6b7b85046"
+              }
+            ],
+            "createdAt": "2025-04-10T10:24:46.275Z",
+            "__v": 1,
+            "currentAttendees": 1,
+            "isFull": false,
+            "id": "67f79c6eb2e830f6b7b85033"
+          },
+          {
+            "_id": "67f79c0af1506fc919e4ddc3",
+            "title": "JavaScript Workshop",
+            "description": "Learn JavaScript basics and advanced concepts in this interactive workshop",
+            "category": "Workshop",
+            "date": "2025-04-17T10:23:05.967Z",
+            "time": "2:00 PM",
+            "duration": 2,
+            "location": "Community Center",
+            "isVirtual": false,
+            "image": "default-event.jpg",
+            "maxAttendees": 20,
+            "timeCredits": 2,
+            "isTimeCreditEarning": true,
+            "skillsRequired": [],
+            "skillsOffered": [],
+            "organizer": {
+              "_id": "67f79b6ef1506fc919e4ddbd",
+              "name": "Test User",
+              "profileImage": "default-avatar.jpg"
+            },
+            "status": "upcoming",
+            "attendees": [],
+            "createdAt": "2025-04-10T10:23:06.465Z",
+            "__v": 0,
+            "currentAttendees": 0,
+            "isFull": false,
+            "id": "67f79c0af1506fc919e4ddc3"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Create event",
+      "method": "POST",
+      "url": "/events",
+      "status": 201,
+      "data": {
+        "success": true,
+        "data": {
+          "title": "JavaScript Workshop",
+          "description": "A hands-on workshop covering JavaScript fundamentals to advanced topics.",
+          "category": "Education",
+          "date": "2025-04-19T00:00:00.000Z",
+          "time": "10:00 AM",
+          "duration": 3,
+          "location": "Community Center",
+          "isVirtual": false,
+          "image": "default-event.jpg",
+          "maxAttendees": 25,
+          "timeCredits": 1,
+          "isTimeCreditEarning": false,
+          "skillsRequired": [],
+          "skillsOffered": [],
+          "organizer": "67f79b6ef1506fc919e4ddbd",
+          "status": "upcoming",
+          "_id": "67fa0ecf210bdc3d0dcaa9f2",
+          "attendees": [],
+          "createdAt": "2025-04-12T06:57:19.445Z",
+          "__v": 0,
+          "currentAttendees": 0,
+          "isFull": false,
+          "id": "67fa0ecf210bdc3d0dcaa9f2"
+        }
+      }
+    },
+    {
+      "name": "Get event categories",
+      "method": "GET",
+      "url": "/events/categories",
+      "status": 200,
+      "data": {
+        "success": true,
+        "count": 2,
+        "data": [
+          "Education",
+          "Workshop"
+        ]
+      }
+    },
+    {
+      "name": "Get all posts",
+      "method": "GET",
+      "url": "/posts",
+      "status": 200,
+      "data": {
+        "success": true,
+        "count": 1,
+        "pagination": {},
+        "data": [
+          {
+            "_id": "67fa0e353f7e56d6726b14e2",
+            "title": "Looking for Gardening Tips",
+            "content": "I recently started a small vegetable garden and would love some advice on organic pest control methods.",
+            "type": "question",
+            "author": {
+              "avatar": "default-avatar.jpg",
+              "_id": "67f79b6ef1506fc919e4ddbd"
+            },
+            "likes": [],
+            "comments": [],
+            "createdAt": "2025-04-12T06:54:45.529Z",
+            "updatedAt": "2025-04-12T06:54:45.530Z",
+            "__v": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Create post",
+      "method": "POST",
+      "url": "/posts",
+      "status": 201,
+      "data": {
+        "success": true,
+        "data": {
+          "_id": "67fa0ed0210bdc3d0dcaa9fa",
+          "title": "Looking for Gardening Tips",
+          "content": "I recently started a small vegetable garden and would love some advice on organic pest control methods.",
+          "type": "question",
+          "author": {
+            "avatar": "default-avatar.jpg",
+            "_id": "67f79b6ef1506fc919e4ddbd"
+          },
+          "likes": [],
+          "comments": [],
+          "createdAt": "2025-04-12T06:57:20.671Z",
+          "updatedAt": "2025-04-12T06:57:20.672Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "name": "Get all feedback",
+      "method": "GET",
+      "url": "/feedback",
+      "status": 200,
+      "data": {
+        "success": true,
+        "count": 0,
+        "data": []
+      }
+    },
+    {
+      "name": "Get time banking balance",
+      "method": "GET",
+      "url": "/timebanking/balance",
+      "status": 200,
+      "data": {
+        "success": true,
+        "data": {
+          "timeCredits": 0
+        }
+      }
+    },
+    {
+      "name": "Get transactions",
+      "method": "GET",
+      "url": "/timebanking/transactions",
+      "status": 200,
+      "data": {
+        "success": true,
+        "count": 2,
+        "data": [
+          {
+            "_id": "67f79d8b3c0630827e8e0bc5",
+            "user": "67f79b6ef1506fc919e4ddbd",
+            "event": {
+              "_id": "67f79d8a3c0630827e8e0bac",
+              "title": "JavaScript Workshop",
+              "date": "2025-04-17T10:29:29.650Z",
+              "location": "Community Center"
+            },
+            "credits": 2,
+            "transactionType": "earning",
+            "status": "pending",
+            "description": "Pending credits for participating in event: JavaScript Workshop",
+            "createdAt": "2025-04-10T10:29:31.826Z",
+            "__v": 0
+          },
+          {
+            "_id": "67f79c6fb2e830f6b7b85049",
+            "user": "67f79b6ef1506fc919e4ddbd",
+            "event": {
+              "_id": "67f79c6eb2e830f6b7b85033",
+              "title": "JavaScript Workshop",
+              "date": "2025-04-17T10:24:45.689Z",
+              "location": "Community Center"
+            },
+            "credits": 2,
+            "transactionType": "earning",
+            "status": "pending",
+            "description": "Pending credits for participating in event: JavaScript Workshop",
+            "createdAt": "2025-04-10T10:24:47.928Z",
+            "__v": 0
+          }
+        ]
+      }
+    }
+  ],
+  "notImplemented": [],
+  "error": [
+    {
+      "name": "Get all users",
+      "method": "GET",
+      "url": "/users",
+      "error": "Request failed with status code 403",
+      "response": {
+        "success": false,
+        "message": "User role 'user' is not authorized to access this route"
+      }
+    },
+    {
+      "name": "Get my profile",
+      "method": "GET",
+      "url": "/users/me",
+      "error": "Request failed with status code 403",
+      "response": {
+        "success": false,
+        "message": "User role 'user' is not authorized to access this route"
+      }
+    }
+  ]
+}
