@@ -17,6 +17,7 @@ const feedbackRoutes = require('./routes/feedback.routes');
 const postRoutes = require('./routes/post.routes');
 const messagingRoutes = require('./routes/messaging.routes');
 const notificationRoutes = require('./routes/notification.routes');
+const adminRoutes = require('./routes/admin.routes');
 const testRoutes = require('./routes/test.routes');
 
 // Load environment variables
@@ -56,6 +57,7 @@ app.use('/api/feedback', feedbackRoutes);
 app.use('/api/posts', postRoutes);
 app.use('/api/messaging', messagingRoutes);
 app.use('/api/notifications', notificationRoutes);
+app.use('/api/admin', adminRoutes);
 // Test routes - only available in development mode
 if (process.env.NODE_ENV === 'development') {
   app.use('/api/test', testRoutes);
